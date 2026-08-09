@@ -12,7 +12,7 @@ out/
 .gradle/
 
 # Archivos empaquetados
-*.jar
+# *.jar
 *.war
 *.ear
 *.zip
