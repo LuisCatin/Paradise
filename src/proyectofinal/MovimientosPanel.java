@@ -56,18 +56,23 @@ public class MovimientosPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 87, 1));
 
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/agregar.png"))); // NOI18N
         addButton.setText("Agregar Movimiento");
         addButton.addActionListener(this::addButtonActionPerformed);
 
+        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/eliminar.png"))); // NOI18N
         deleteButton.setText("Eliminar");
         deleteButton.addActionListener(this::deleteButtonActionPerformed);
 
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/actualizar.png"))); // NOI18N
         updateButton.setText("Actualizar");
         updateButton.addActionListener(this::updateButtonActionPerformed);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Movimientos");
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,6 +85,7 @@ public class MovimientosPanel extends javax.swing.JPanel {
                 "Id", "Tipo", "Cantidad", "Fecha", "Producto", "Bodega"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 87, 1));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
