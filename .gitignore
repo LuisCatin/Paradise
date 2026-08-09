@@ -1,0 +1,47 @@
+# Archivos compilados y logs de ejecución
+*.class
+*.log
+hs_err_pid*
+replay_pid*
+
+# Directorios de salida y build (Maven, Gradle, etc.)
+target/
+build/
+bin/
+out/
+.gradle/
+
+# Archivos empaquetados
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# NetBeans
+/nbproject/private/
+/nbproject/aql-result/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
