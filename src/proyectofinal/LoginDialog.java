@@ -25,6 +25,11 @@ public class LoginDialog extends javax.swing.JDialog {
     public LoginDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        userField.setText("El usuario es: admin");
+        userField.setForeground(java.awt.Color.GRAY);
+
+        passField.setText("La contraseña es: admin");
+        passField.setForeground(java.awt.Color.GRAY);
     }
 
     /**
@@ -39,15 +44,38 @@ public class LoginDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
-        userField = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                if (getText().isEmpty()) {
+                    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                    g2.setColor(java.awt.Color.GRAY);
+                    g2.drawString("El usuario es: admin", getInsets().left + 5, g.getFontMetrics().getAscent() + getInsets().top);
+                    g2.dispose();
+                }
+            }
+        };
         userError = new javax.swing.JLabel();
         passLabel = new javax.swing.JLabel();
-        passField = new javax.swing.JTextField();
+        passField = new javax.swing.JTextField() {
+            @Override
+            protected void paintComponent(java.awt.Graphics g) {
+                super.paintComponent(g);
+                if (getText().isEmpty()) {
+                    java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                    g2.setColor(java.awt.Color.GRAY);
+                    g2.drawString("La contraseña es: admin", getInsets().left + 5, g.getFontMetrics().getAscent() + getInsets().top);
+                    g2.dispose();
+                }
+            }
+        };
         passError = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Paradise Login");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -63,7 +91,15 @@ public class LoginDialog extends javax.swing.JDialog {
         userLabel.setForeground(new java.awt.Color(16, 76, 125));
         userLabel.setText("Usuario");
 
-        userField.setToolTipText("");
+        userField.setToolTipText("El usuario es: admin");
+        userField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userFieldFocusLost(evt);
+            }
+        });
         userField.addActionListener(this::userFieldActionPerformed);
         userField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -79,6 +115,15 @@ public class LoginDialog extends javax.swing.JDialog {
         passLabel.setForeground(new java.awt.Color(16, 76, 125));
         passLabel.setText("Contraseña");
 
+        passField.setToolTipText("La contraseña es: admin");
+        passField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passFieldFocusLost(evt);
+            }
+        });
         passField.addActionListener(this::passFieldActionPerformed);
         passField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -121,14 +166,14 @@ public class LoginDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userError, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(passLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passError)
                 .addGap(24, 24, 24)
                 .addComponent(loginButton)
@@ -197,6 +242,34 @@ public class LoginDialog extends javax.swing.JDialog {
             loginButtonActionPerformed(null);
         }
     }//GEN-LAST:event_passFieldKeyPressed
+
+    private void userFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userFieldFocusGained
+        if (userField.getText().equals("El usuario es: admin")) {
+            userField.setText("");
+            userField.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_userFieldFocusGained
+
+    private void userFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userFieldFocusLost
+        if (userField.getText().isEmpty()) {
+            userField.setText("El usuario es: admin");
+            userField.setForeground(java.awt.Color.GRAY);
+        }
+    }//GEN-LAST:event_userFieldFocusLost
+
+    private void passFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFieldFocusGained
+        if (passField.getText().equals("La contraseña es: admin")) {
+            passField.setText("");
+            passField.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_passFieldFocusGained
+
+    private void passFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passFieldFocusLost
+        if (passField.getText().isEmpty()) {
+            passField.setText("La contraseña es: admin");
+            passField.setForeground(java.awt.Color.GRAY);
+        }
+    }//GEN-LAST:event_passFieldFocusLost
 
     /**
      * @param args the command line arguments

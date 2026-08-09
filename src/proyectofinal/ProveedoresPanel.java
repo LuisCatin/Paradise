@@ -65,14 +65,18 @@ public class ProveedoresPanel extends javax.swing.JPanel {
                 "Id", "Nombre Empresa", "R.U.C", "Email"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(0, 144, 239));
         jScrollPane1.setViewportView(jTable1);
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/agregar.png"))); // NOI18N
         jButton2.setText("Agregar Proveedor");
         jButton2.addActionListener(this::jButton2ActionPerformed);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/eliminar.png"))); // NOI18N
         jButton3.setText("Eliminar");
         jButton3.addActionListener(this::jButton3ActionPerformed);
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/actualizar.png"))); // NOI18N
         jButton4.setText("Actualizar");
         jButton4.addActionListener(this::jButton4ActionPerformed);
 
