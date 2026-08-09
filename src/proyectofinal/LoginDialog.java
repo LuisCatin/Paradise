@@ -63,7 +63,6 @@ public class LoginDialog extends javax.swing.JDialog {
         userLabel.setForeground(new java.awt.Color(16, 76, 125));
         userLabel.setText("Usuario");
 
-        userField.setText("admin");
         userField.setToolTipText("");
         userField.addActionListener(this::userFieldActionPerformed);
         userField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -80,7 +79,6 @@ public class LoginDialog extends javax.swing.JDialog {
         passLabel.setForeground(new java.awt.Color(16, 76, 125));
         passLabel.setText("Contraseña");
 
-        passField.setText("admin");
         passField.addActionListener(this::passFieldActionPerformed);
         passField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
